@@ -37,12 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     #3rd Party
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
+    "allauth",
+    "allauth.account", 
+    "allauth.socialaccount", 
     'dj_rest_auth',
+    'dj_rest_auth.registration',
 
 
     #Local
@@ -74,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.request", 
             ],
         },
     },
@@ -156,3 +162,6 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+
+SITE_ID = 1 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
